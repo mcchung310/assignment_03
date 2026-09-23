@@ -48,7 +48,6 @@ package_data = st.text_input(
 # TODO: guard the work — an `if` on package_data, so that nothing below runs while
 #       the text box is empty. Everything that follows is indented inside it.
 if package_data:
-
     # 1. Parse.
     #    TODO: call parse_packaging(package_data) and store the result in `package`.
 
