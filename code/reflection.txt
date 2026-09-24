@@ -4,3 +4,30 @@ See reflection.md for what makes a good reflection — be specific, use the
 terminology from this assignment (rerun, widget, return value, guard, bytes vs.
 text, decode, session state, initialise once, button-triggered, metric), and make
 it actionable.
+
+In this assignment I got to learn/build a script that reruns top to bottom on 
+every interaction. Streamlit is made to forget everything each time you click, 
+resetting the variables. Using st.session_state, we could make the app remember 
+things between reruns. To do this, we used a pattern of setting values up only once
+at the very start, changing them only when something happens (like clicking a button)
+and then displaying them from session state every time - which is how the 3rd app
+was able to keep a running count of files and pacakges insteada of starting over 
+each time. 
+
+Another big takeaway was learning how to guard your work until there's input.
+Because the script runs the second the page is opened, we needed to make the code 
+wait for the user to input something. So to do this, we wrapped the work in an "if" 
+statement (ex. "if package_data:") which made it so the app does nothing until
+there is actually something to process (all the apps used this). 
+
+Where I struggled was putting the pieces in the right order - first setting up 
+the session_state and then handling the click (I also forgot the Reset), and then
+showing the metrics and history. I also had some bugs like a mismatched packaged_file
+name (packaged_file vs package_file) and then I had code stuck under st.stop() so the 
+script stopped running and there was stuff indented under it so if there was no file, 
+the script stopped before reaching those lines and then if there was a file, the whole
+block was skipped since it only runs when there's no file. 
+
+For next assignment, I need to watch my indentationlines around if, else and st.stop() 
+in order to avoid running into erros. I also should test the apps more often as I go and 
+run them even after small changes so I can have a better idea of what broke and where. 
